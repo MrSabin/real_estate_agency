@@ -22,9 +22,7 @@ class Flat(models.Model):
         blank=True,
         help_text="Чертаново Южное",
     )
-    address = models.TextField(
-        "Адрес квартиры", help_text="ул. Подольских курсантов д.5 кв.4"
-    )
+    address = models.TextField("Адрес квартиры", help_text="ул. Подольских курсантов д.5 кв.4")
     floor = models.CharField(
         "Этаж", max_length=3, help_text="Первый этаж, последний этаж, пятый этаж"
     )
