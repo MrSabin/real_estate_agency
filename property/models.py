@@ -42,6 +42,8 @@ class Flat(models.Model):
     def __str__(self):
         return f"{self.town}, {self.address} ({self.price}р.)"
 
+    likes = models.ManyToManyField(User, related_name="liked_by", verbose_name="Кто лайкнул")
+
 
 class Complaint(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Кто жаловался")
