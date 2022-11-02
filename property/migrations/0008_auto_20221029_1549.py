@@ -6,7 +6,8 @@ from django.db import migrations
 def get_owners_data(apps, schema_editor):
     flats = apps.get_model("property", "Flat")
     owners = apps.get_model("property", "Owner")
-    for flat in flats.objects.all():
+    all_flats = flats.objects.all()
+    for flat in all_flats.iterator():
         owners.objects.get_or_create(
             full_name=flat.owner,
             phone_number=flat.owners_phonenumber,
